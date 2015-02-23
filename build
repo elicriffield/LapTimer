@@ -1,0 +1,8 @@
+#!/bin/bash
+set -x
+rm -f liblcd.so lcd.o test
+export LD_LIBRARY_PATH=`pwd`:$LD_LIBRARY_PATH
+gcc -c -fpic lcd.c && \
+gcc -shared -o liblcd.so lcd.o && \
+
+echo "export LD_LIBRARY_PATH=`pwd`:$LD_LIBRARY_PATH"
